@@ -1,0 +1,182 @@
+:root {
+  --Green-500: hsl(158, 36%, 37%);
+  --Green-700: hsl(158, 42%, 18%);
+
+  --Black: hsl(212, 21%, 14%);
+  --Grey: hsl(228, 12%, 48%);
+  --Cream: hsl(30, 38%, 92%);
+  --White: hsl(0, 0%, 100%);
+
+  --ff-accent: "Fraunces", serif;
+  --ff-base: "Montserrat", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.7;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+/* general styling */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 1.4rem;
+  color: var(--Grey);
+  background-color: var(--Cream);
+
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  margin: 1rem;
+}
+
+/* utilities */
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* button */
+.button {
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--Green-500);
+  color: var(--White);
+  font-weight: var(--fw-bold);
+  font-size: 1.48rem;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+  background-color: var(--Green-700);
+}
+
+/* product styles */
+.product {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  background-color: var(--White);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  max-width: 38em;
+}
+
+@media (min-width: 38em) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product__content {
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+}
+
+.product__category {
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.product__title {
+  font-size: 3.2rem;
+  font-family: var(--ff-accent);
+  color: var(--Black);
+}
+
+.product__price {
+  font-size: 3.2rem;
+  font-family: var(--ff-accent);
+  color: var(--Green-500);
+  font-weight: var(--fw-bold);
+}
+
+.product__original-price {
+  text-decoration: line-through;
+}
